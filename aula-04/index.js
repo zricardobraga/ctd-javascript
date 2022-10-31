@@ -51,6 +51,8 @@ let contator = 1;
 
 const url = "http://...";
 
+Digno de nota: as variáveis do tipo const são declaradas com letras maiusculas
+
 Digno de nota: Uma variável do tipo var será globalmente acessível em todo o código. 
 Se houver outra variável com o mesmo nome em parte posterior do código, o seu valor será alterado.
 No tipo let, o acesso será limitado apenas no bloco de código onde ela foi declarada.
@@ -69,6 +71,8 @@ Kebab Case: nome-variavel.
 
 Permitem o js conhecer os recursos e funcionalidades que estarão disposniveis para estes dados.
 Duas categorias: primitivos e complexos ou compostos.
+
+Primitivos: number (inteiros ou ponto flutuante), string (texto) e booleno (true e false).
 
 Digno de nota: Objeto literal cria um conjunto de informações em uma única variável. Aceitas vários tipos de dados em suas propriedades.
 
@@ -90,7 +94,7 @@ Pra que servem? Para manipular o valor das variáveis, realizar operações e co
 Tipos de operadores
 
 de atribuição: =
-numéricos = +, -, *, /, ++ (incremento), --(decremento) e % (módulo - retorna o resto da divisão)
+numéricos = +, -, *, /, ++ (incremento), --(decremento), ** (exponenciação) e % (módulo - retorna o resto da divisão)
 
 Digno de nota: os operadores númericos sempre retornarão o resultado númerico da operação
 
@@ -107,3 +111,12 @@ de comparação: == (simples, que retorna o um booleano), === (rigorosa, que ir�
 
 */ 
 
+// aula sincrona de 24/10
+
+console.log("Hello fucking world!");
+
+function soma(num1, num2) {
+    return num1+num2;
+}
+
+console.log("Resultado da soma: " + soma(10, 10));
