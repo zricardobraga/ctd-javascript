@@ -10,11 +10,11 @@ class Aluno {
             this.notas = notas
     }
 
-    /*    
-    2-Na função construtora crie o método calcularMedia que retorna a média de suas notas. 
-    Também terá um método chamado faltas, que simplesmente aumenta o número de faltas em 1. 
-    Crie alguns alunos para testar a sua função construtora.
-    */
+/*    
+2-Na função construtora crie o método calcularMedia que retorna a média de suas notas. 
+Também terá um método chamado faltas, que simplesmente aumenta o número de faltas em 1. 
+Crie alguns alunos para testar a sua função construtora.
+*/
 
     calcularMedia() {
         return (this.notas.reduce((acc, media) => acc + media) / this.notas.length).toFixed(1);
@@ -121,11 +121,11 @@ class Curso {
         }
     }
 
-    /*
-    5-Crie um método para o objeto curso que receba um aluno (como parâmetro) e retorne true se ele aprovou no curso ou false em caso de reprovação. 
-    Para ser aprovado, o aluno tem que ter uma média igual ou acima da nota de aprovação  e ter menos faltas que faltas máximas. 
-    Se tiver a mesma quantidade, tem que estar 10% acima da nota de aprovação.
-    */
+/*
+5-Crie um método para o objeto curso que receba um aluno (como parâmetro) e retorne true se ele aprovou no curso ou false em caso de reprovação. 
+Para ser aprovado, o aluno tem que ter uma média igual ou acima da nota de aprovação  e ter menos faltas que faltas máximas. 
+Se tiver a mesma quantidade, tem que estar 10% acima da nota de aprovação.
+*/
     avaliadorEstudante(estudante) {
         const estudanteEncontrado = this.buscadorEstudante(estudante);
         // console.log(estudanteEncontrado);
@@ -147,7 +147,7 @@ class Curso {
 se os alunos aprovaram ou não.
 */
 
-    avaliadorCurso() {
+    mostradorAprovados() {
         let aprovados = [];
         for (const estudante of this.estudantes) {
                 if(this.avaliadorEstudante(estudante.nome) == true){
@@ -156,13 +156,32 @@ se os alunos aprovaram ou não.
             }
             return aprovados;
     }
+
+    mostradorReprovados() {
+        let reprovados = [];
+        for (const estudante of this.estudantes) {
+                if(this.avaliadorEstudante(estudante.nome) != true){
+                    reprovados.push({nome: estudante.nome, media: estudante.calcularMedia(), faltas: estudante.faltas});
+                }
+            }
+            return reprovados;
+    }
 }
 
 const curso1 = new Curso("Java", 7.0, 10, estudantes);
 // console.log(curso1);
 
-console.log(curso1.buscadorEstudante("Pedro"));
-curso1.avaliadorEstudante("Pedro");
-curso1.avaliadorEstudante("Ricardo");
-curso1.avaliadorEstudante("Rogério");
-console.log(curso1.avaliadorCurso());
+// console.log(curso1.buscadorEstudante("Pedro"));
+// curso1.avaliadorEstudante("Pedro");
+// curso1.avaliadorEstudante("Ricardo");
+// curso1.avaliadorEstudante("Rogério");
+
+console.log("---LISTA DE APROVADOS---");
+console.log(`---${curso1.nomeCurso}---`);
+console.table(curso1.mostradorAprovados());
+
+console.log("---LISTA DE REPROVADOS---");
+console.log(`---${curso1.nomeCurso}---`);
+console.table(curso1.mostradorReprovados());
+
+
