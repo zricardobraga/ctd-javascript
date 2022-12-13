@@ -37,7 +37,6 @@ function timer(option, time) {
 
         else if (time > 20 && time < 30) {
             console.log("Queimou!");
-
         }
 
         else {
